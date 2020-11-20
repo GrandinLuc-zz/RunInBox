@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div id="main-header">
       <header id="tittle">
         <h1>RUN-IN-BOX</h1>
@@ -12,10 +13,17 @@
         <button id="sign_in" class="btn btn-transparent" @click="$router.push('sign_up')">Se connecter</button>
       </div>
     </div>
-  <router-view/>
+    <router-view/>
+  </div>
 </template>
 
 <style>
+body{
+  margin: 0;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,149,179,1) 33%, rgba(0,122,147,1) 66%, rgba(0,0,0,1) 100%);
+}
+
 form{
     background-color: #cbd18f;
     margin: 10%;
