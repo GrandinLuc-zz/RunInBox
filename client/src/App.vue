@@ -2,7 +2,7 @@
   <div>
     <div id="main-header">
       <header id="tittle">
-        <h1>RUN-IN-BOX</h1>
+        <h1><router-link id="bigHome" to="/">RUN-IN-BOX</router-link> </h1>
       </header>
       <ul id="nav-link">
         <router-link to="/">Home</router-link> |
@@ -20,8 +20,8 @@
 <style>
 body{
   margin: 0;
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,149,179,1) 33%, rgba(0,122,147,1) 66%, rgba(0,0,0,1) 100%);
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(10,10,10,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 form{
@@ -93,16 +93,16 @@ input{
 }
 
 #tittle{
-  color: #3a6b35;
+  color: #ECF39E;
 }
 
 #main-header{
   display: flex;
-  flex-grow: 1;
-  background: #cbd18f;
+  background-color: #132A13;
   padding-right: 0em;
   padding-left: 1em;
   padding-top: 0.75em;
+  flex-direction: columb;
 }
 
 .btn {
@@ -123,5 +123,9 @@ input{
     background-color: #cbd18f;
     color: #3a6b35;
     border: 2px solid #3a6b35;
+}
+
+#bigHome {
+  color: #ECF39E;
 }
 </style>
