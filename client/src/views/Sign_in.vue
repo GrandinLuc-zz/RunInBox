@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="home">
         <form class="box">
             <h1>Connection</h1>
             <div>
@@ -12,7 +12,3 @@
         </form>
     </div>
 </template>
-
-<style>
-
-</style>

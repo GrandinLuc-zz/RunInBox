@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="home">
         <form class="box">
             <h1>Inscription</h1>
             <div>

@@ -37,16 +37,14 @@
   align-items: center;
 }
 .halfBox{
-  background: rgb(107,107,107);
-  background: linear-gradient(0deg, rgba(107,107,107,1) 0%, rgba(26,26,26,1) 100%);
+  background: linear-gradient(0deg, rgba(35,35,35,1) 0%, rgba(26,26,26,1) 100%);
   width: 500px;
   height: 300px;
   border-radius: 10px;
   margin: 10px;
 }
 .bigBox{
-  background: rgb(107,107,107);
-  background: linear-gradient(0deg, rgba(107,107,107,1) 0%, rgba(26,26,26,1) 100%);
+  background: linear-gradient(0deg, rgba(35,35,35,1) 0%, rgba(26,26,26,1) 100%);
   width: 1020px;
   height: 300px;
   border-radius: 10px;

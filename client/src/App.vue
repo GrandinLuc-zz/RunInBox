@@ -1,16 +1,16 @@
 <template>
   <div>
     <div id="main-header">
-      <header id="tittle">
+      <header id="title">
         <h1><router-link id="bigHome" to="/">RUN-IN-BOX</router-link> </h1>
       </header>
-      <ul id="nav-link">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
-      </ul>
       <div id="nav-btn">
-        <button id="sing_up" class="btn btn-color" @click="$router.push('sign_in')">S'inscrire</button>
-        <button id="sign_in" class="btn btn-transparent" @click="$router.push('sign_up')">Se connecter</button>
+        <ul id="nav-link">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/about">About</router-link> |
+        </ul>
+        <button id="sing_up" class="btn btn-color" @click="$router.push('sign_up')"><a>S'inscrire</a></button>
+        <button id="sign_in" class="btn btn-transparent" @click="$router.push('sign_in')">Se connecter</button>
       </div>
     </div>
     <router-view/>
@@ -18,18 +18,42 @@
 </template>
 
 <style>
+* {
+    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+}
+
+a:active{
+  background-color: #333333;
+}
+
+a, button{
+  outline: 0;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
 body{
-  margin: 0;
-  background: rgb(0,0,0);
-  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(10,10,10,1) 50%, rgba(0,0,0,1) 100%);
+      background: linear-gradient(0deg, rgba(20,20,25,1), rgba(30,30,30,1));
+}
+
+.home{
+    height: 80vh;
 }
 
 form{
-    background-color: #cbd18f;
+    background-color: white;
     margin: 10%;
+    margin-top: 0;
     padding: 2em;
-    border: 2px solid #3a6b35;
+    border: 2px solid #202025;
     border-radius: 1em;
+    margin-top: 50px;
 }
 
 .box{
@@ -43,14 +67,14 @@ form{
 }
 
 .box h1{
-  color: #3a6b35;
+  color: #202025;
   text-transform: uppercase;
 }
 
 .box input[type= "text"], .box input[type = "password"], .box input[type = "email"]{
   width: 200px;
   text-align: center;
-  border: 2px solid #3a6b35;
+  border: 2px solid #202025;
 }
 
 .box input[type= "text"]:focus, .box input[type = "password"]:focus, .box input[type = "email"]:focus{
@@ -61,8 +85,8 @@ form{
 input{
     padding: 1ex;
     margin: 0.5em;
-    background-color: #cbd18f;
-    border: 2px solid #3a6b35;
+    background-color: #bbbbbb;
+    border: 2px solid #202025;
     border-radius: 1ch;
 }
 
@@ -76,33 +100,35 @@ input{
 
 #nav-link a {
   font-weight: bold;
-  color: #3a6b35;
+  color: white;
 }
 
 #nav-link a.router-link-exact-active {
-  color: #42b983;
+  color: white;
 }
 
 #nav-link{
-  margin: 1.5em;
   justify-content: space-around;
 }
 
 #nav-btn{
   justify-content: left;
+  display: flex;
+  align-items: center;
 }
 
-#tittle{
-  color: #ECF39E;
+#title{
+  color: white;
 }
 
 #main-header{
   display: flex;
-  background-color: #132A13;
+  background-color: #202025;
   padding-right: 0em;
   padding-left: 1em;
-  padding-top: 0.75em;
-  flex-direction: columb;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
 }
 
 .btn {
@@ -115,17 +141,17 @@ input{
 }
 
 .btn-color{
-    color: #cbd18f;
-    background-color: #3a6b35;
+    color: white;
+    background-color: #202025;
 }
 
 .btn-transparent{
-    background-color: #cbd18f;
-    color: #3a6b35;
-    border: 2px solid #3a6b35;
+    background-color: white;
+    color: #202025;
+    border: 2px solid #202025;
 }
 
 #bigHome {
-  color: #ECF39E;
+  color: white;
 }
 </style>
