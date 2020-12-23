@@ -18,14 +18,14 @@
           class='btn btn-color'
           @click='$router.push("sign_up")'
         >
-          <a>S'inscrire</a>
+          <a>Sign up</a>
         </button>
         <button
           id='sign_in'
           class='btn btn-transparent'
           @click='$router.push("sign_in")'
         >
-          Se connecter
+          Log in
         </button>
       </div>
     </div>
@@ -33,8 +33,8 @@
       <ul class='menuList'>
         <li><a class='menuItem1' @click='$router.push("./")'>Home</a></li>
         <li><a class='menuItem2' @click='$router.push("about")'>About</a></li>
-        <li><a class='menuItem3' @click='$router.push("sign_up")'>Se connecter</a></li>
-        <li><a class='menuItem4' @click='$router.push("sign_in")'>S'inscrire</a></li>
+        <li><a class='menuItem3' @click='$router.push("sign_up")'>Log in</a></li>
+        <li><a class='menuItem4' @click='$router.push("sign_in")'>Sign up</a></li>
       </ul>
     </div>
     <router-view />
