@@ -4,9 +4,12 @@ const tokenUtils = require('../utils/token-utils.js')
 
 const router = new express.Router()
 
+const login = 'joe'
+const password = 'smith'
+
 router.post('/token', (req, res) => {
-    const authorizedLogin = process.env.AUTHORIZED_LOGIN
-    const authorizedPasswd = process.env.AUTHORIZED_PASSWD
+    const authorizedLogin = login
+    const authorizedPasswd = password
 
     const body = req.body
 
@@ -30,12 +33,13 @@ router.post('/token', (req, res) => {
         login: body.login,
     }
 
-    const token = tokenUtils.sign(payload)
+    const token = tokenUtils.createToken(payload)
 
-    res.json({
+    res.status(201).json({
         success: true,
         token
     })
+    //localStorage.setItem('token', token)
 })
 
 module.exports = router
