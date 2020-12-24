@@ -13,8 +13,18 @@
           |
           <router-link to='/about'>About</router-link>
         </ul>
-        <button
-          id='sing_up'
+        <div class='delogs logged'>
+          <button
+          id='sign_off'
+          class='btn btn-transparent'
+          @click='this.logOut()'
+        >
+          Log out
+          </button>
+        </div>
+        <div class='logs'>
+          <button
+          id='sign_up'
           class='btn btn-color'
           @click='$router.push("sign_up")'
         >
@@ -26,15 +36,18 @@
           @click='$router.push("sign_in")'
         >
           Log in
-        </button>
+          </button>
+        </div>
       </div>
     </div>
     <div class='menu'>
       <ul class='menuList'>
-        <li><a class='menuItem1' @click='$router.push("./")'>Home</a></li>
-        <li><a class='menuItem2' @click='$router.push("about")'>About</a></li>
-        <li><a class='menuItem3' @click='$router.push("sign_up")'>Log in</a></li>
-        <li><a class='menuItem4' @click='$router.push("sign_in")'>Sign up</a></li>
+        <li class='item1'><a class='menuItem1' @click='$router.push("./")'>Home</a></li>
+        <li class='item2'><a class='menuItem2' @click='$router.push("about")'>About</a></li>
+        <li class='item3'><a class='menuItem3' @click='$router.push("sign_in")'>Log in</a></li>
+        <li class='item4'><a class='menuItem4' @click='$router.push("sign_up")'>Sign up</a></li>
+        <li class='item5 logged'><a class='menuItem5' @click='this.logOut()'>Log out</a></li>
+
       </ul>
     </div>
     <router-view />
@@ -45,6 +58,44 @@
 export default {
   name: 'Run-In-Box',
   methods: {
+    loggedInInterface () {
+      const logs = document.querySelector('.logs')
+      const delogs = document.querySelector('.delogs')
+      const item3 = document.querySelector('.item3')
+      const item4 = document.querySelector('.item4')
+      const item5 = document.querySelector('.item5')
+      logs.classList.add('logged')
+      item3.classList.add('logged')
+      item4.classList.add('logged')
+      item5.classList.remove('logged')
+      delogs.classList.remove('logged')
+    },
+    isLoggedIn () {
+      const token = localStorage.getItem('token')
+      fetch('http://localhost:4000/api/v1/verify/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          token
+        })
+      })
+        .then(res => res.json())
+        .then(
+          (toCheck) => {
+            const username = localStorage.getItem('username')
+            if (toCheck.toCheck.login === username) {
+              this.loggedInInterface()
+            }
+          }
+        )
+    },
+    logOut () {
+      localStorage.setItem('token', '')
+      localStorage.setItem('username', '')
+      window.location.replace('/')
+    },
     Menu () {
       const menuBtn = document.querySelector('.menu-btn')
       const menu = document.querySelector('.menu')
@@ -72,14 +123,17 @@ export default {
       const menuItem2 = document.querySelector('.menuItem2')
       const menuItem3 = document.querySelector('.menuItem3')
       const menuItem4 = document.querySelector('.menuItem4')
+      const menuItem5 = document.querySelector('.menuItem5')
       menuItem1.addEventListener('click', () => menuClick())
       menuItem2.addEventListener('click', () => menuClick())
       menuItem3.addEventListener('click', () => menuClick())
       menuItem4.addEventListener('click', () => menuClick())
+      menuItem5.addEventListener('click', () => menuClick())
     }
   },
   mounted () {
     this.Menu()
+    this.isLoggedIn()
   }
 }
 </script>
@@ -225,6 +279,48 @@ input {
   background-color: white;
   color: #202025;
   border: 2px solid #202025;
+}
+.logs {
+  visibility: visible;
+  display: flex;
+}
+.logs.logged {
+  visibility: collapse;
+  width: 0;
+}
+
+.delogs {
+  visibility: visible;
+  display: flex;
+}
+.delogs.logged {
+  visibility: collapse;
+  width: 0;
+}
+
+.item3{
+  visibility: visible;
+}
+.item4{
+  visibility: visible;
+}
+
+.item3.logged {
+  visibility: collapse;
+  height: 0;
+}
+.item4.logged {
+  visibility: collapse;
+  height: 0;
+}
+
+.item5 {
+  visibility: visible;
+}
+
+.item5.logged {
+  visibility: collapse;
+  height: 0;
 }
 
 #mainContainer {
