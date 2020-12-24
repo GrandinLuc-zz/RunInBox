@@ -4,7 +4,7 @@ const express = require('express')
 const currenciesRoutes = require('./currencies-routes.js')
 const authRoutes = require('./auth-routes.js')
 
-const verifyToken = require('../middlewares/verify-token.js')
+const verifyToken = require('../middleware/verify-token.js')
 
 const router = new express.Router()
 

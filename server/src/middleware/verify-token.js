@@ -2,19 +2,16 @@ const tokenUtils = require('../utils/token-utils.js')
 
 function verifyToken (req, res, next) {
     try {
-        // split
-        // const token = req.header('Authorization').split(' ')[1]
-        // substring
-        // const token = req.header('Authorization').substring(7)
-        // replace
         const token = req.header('Authorization').replace('Bearer ', '')
-        tokenUtils.checkToken(token)
-        next()
+        tokenUtils.checkToken(token) // [1]
+        next() // [2]
     } catch (error) {
-        res.json({
-            success: false,
-            message: 'Invalid token'
-        })        
+        res
+          .status(401) // [3]
+          .json({
+              success: false,
+              message: 'Invalid token' // [4]
+          })        
     }
 }
 
