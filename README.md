@@ -25,12 +25,6 @@ Pour l’utilisation, il est préférable de lancer le site avec Google Chrome a
 
 Néanmoins sans l'extension chrome, les images ne s'affichent pas et laissent apparaitre des carrés noirs.
 
-### Améliorations
-
-Un des problèmes que nous avons relevé avec l'affichage de la page Home.vue est que l'affichage de la page principale est saccadé, et cela est dû aux promesses qui sont gènéré quand l'utilisateurs scroll et que l'image suivante est nécéssaire. Il aurait été plus optimisé d'utiliser une base de donnée mais moins intéressant d'un point de vue technique pour nous.
-
-Une idée d'améliorations : crée une page avec un panier pour y ajouter des items.
-
 ## **Server** : avec node.js
 
 ### Description
@@ -57,8 +51,20 @@ La base de donnée dans laquelle sont stocké les utilisateurs est un fichier JS
 
 Pour lancer, utiliser la commande : npm run dev
 
+## Ce qui ne fonctionne pas
+
+* L'écriture dans le fichier user.json qui nous sert de base donnée.
+* La fonction Login connecte les utilisateurs peut importe leur mot de passe ( pour des raisons de test ).
+
+## Améliorations
+
+* Un des problèmes que nous avons relevé avec l'affichage de la page Home.vue est que l'affichage de la page principale est saccadé, et cela est dû aux promesses qui sont gènéré quand l'utilisateurs scroll et que l'image suivante est nécéssaire. Il aurait été plus optimisé d'utiliser une base de donnée mais moins intéressant d'un point de vue technique pour nous.
+* Une idée d'améliorations : crée une page avec un panier pour y ajouter des items.
+* Le site étant presque entièrement adapté pour mobile, il reste néanmoins certains points d'améliorations à ce niveau là.
+
 ## Ressources 
 * Cours de developpement web ESILV https://esilv.stormier.ninja/
 * Documentation officielle Vue.js https://vuejs.org/v2/examples/
 * Bcrytp : https://www.npmjs.com/package/bcrypt
 * Extension chrome ( qui permet aux images de s'afficher ) Moesif Origin & CORS Changer : https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related
+
