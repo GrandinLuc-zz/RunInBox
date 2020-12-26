@@ -3,7 +3,7 @@ const util = require('util')
 const writeFile = util.promisify(fs.writeFile)
 const readFile = util.promisify(fs.readFile)
 
-const dbFile = './users.json'
+const dbFile = './src/users.json'
 
 // Fonction qui prend un objet, le transforme en string
 // et enregiste cette string dans un fichier JSON lisible par un humain,

@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <form @submit.prevent="sendCredentials()" class="box">
+        <form @submit.prevent="signUp()" class="box" method="POST">
             <h1>Inscription</h1>
             <div>
                 <input type="text" placeholder="Nom">
@@ -9,7 +9,7 @@
                 <input type="text" placeholder="Prenom">
             </div>
             <div>
-                <input id="username" v-model="username" required placeholder="Username">
+                <input type="text" id="username" v-model="username" required placeholder="Username">
             </div>
             <div>
                 <input type="password" v-model="password" id="password" required placeholder="Password">
@@ -24,7 +24,9 @@ export default {
   data () {
     return {
       username: undefined,
-      password: undefined
+      password: undefined,
+      nom: undefined,
+      prenom: undefined
     }
   },
   methods: {
@@ -43,11 +45,37 @@ export default {
       })
         .then(res => res.json())
         .then(({ success, token }) => {
-          localStorage.setItem('token', token)
-          localStorage.setItem('username', this.username)
           if (success === true) {
+            localStorage.setItem('token', token)
+            localStorage.setItem('username', this.username)
             console.log('success')
             window.location.replace('/')
+          }
+        })
+        .catch(error => { this.error = error })
+    },
+    signUp () {
+      const login = this.username
+      const password = this.password
+      const firstname = this.prenom
+      const lastname = this
+      console.log('begining signing up')
+      fetch('http://localhost:4000/api/v1/write', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          login,
+          password,
+          firstname,
+          lastname
+        })
+      })
+        .then(res => res.json())
+        .then(({ success }) => {
+          if (success) {
+            this.sendCredentials()
           }
         })
         .catch(error => { this.error = error })
