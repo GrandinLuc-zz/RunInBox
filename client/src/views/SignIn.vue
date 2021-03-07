@@ -26,7 +26,7 @@ export default {
     sendCredentials () {
       const login = this.username
       const password = this.password
-      fetch('http://localhost:4000/api/v1/auth/token', {
+      fetch('/api/v1/auth/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export default {
     signIn () {
       const login = this.username
       const password = this.password
-      fetch('http://localhost:4000/api/v1/read', {
+      fetch('/api/v1/read', { // trouver une autre url que read -> pas de verbe dans les url
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
