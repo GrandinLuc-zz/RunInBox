@@ -26,14 +26,14 @@
           <button
           id='sign_up'
           class='btn btn-color'
-          @click='$router.push("sign_up")'
+          @click='$router.push("sign-up")'
         >
           <a>Sign up</a>
         </button>
         <button
           id='sign_in'
           class='btn btn-transparent'
-          @click='$router.push("sign_in")'
+          @click='$router.push("sign-in")'
         >
           Log in
           </button>
@@ -88,7 +88,7 @@ export default {
             const username = localStorage.getItem('username')
             if (toCheck?.toCheck?.login === username) {
               this.loggedInInterface()
-            } // supprimer jwb du local storage et rediriger vers page loguin
+            } // supprimer jwb du local storage et rediriger vers page login
           }
         )
     },
