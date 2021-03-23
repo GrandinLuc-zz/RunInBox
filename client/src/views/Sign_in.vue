@@ -3,7 +3,7 @@
         <form @submit.prevent="sendCredentials()" class="box">
             <h1>Connection</h1>
             <div>
-                <input id="username" v-model="username" required placeholder="Username">
+                <input type="text" id="username" v-model="username" required placeholder="Username">
             </div>
             <div>
                 <input type="password" v-model="password" id="password" required placeholder="Password">

@@ -9,7 +9,7 @@
                 <input type="text" placeholder="Prenom">
             </div>
             <div>
-                <input id="username" v-model="username" required placeholder="Username">
+                <input type="text" id="username" v-model="username" required placeholder="Username">
             </div>
             <div>
                 <input type="password" v-model="password" id="password" required placeholder="Password">
