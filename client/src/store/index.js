@@ -1,5 +1,15 @@
 import { createStore } from 'vuex'
 
+
+
+const jsonPost = (url, options) =>{
+  fetch(
+    url,
+    { ...options, headers:{ ...options.headers, 'Content-Type': 'application/json'}, 
+    method: 'post'})
+  .then(res => res.json())
+}
+
 export default createStore({
   state: {
     user: undefined
@@ -14,24 +24,24 @@ export default createStore({
   },
   actions: {
     login (actionObject, credentials) {
-      // fetch(url, { headers, method: 'post', body: credentials })
-      //   .then(res => res.json())
-      //   .then(data => {
-      //     actionObject.commit('setUser', data.user)
-      //   })
+      fetch(url, { headers, method: 'post', body: credentials })
+        .then(res => res.json())
+        .then(data => {
+          actionObject.commit('setUser', data.user)
+        })
     },
-    // checkToken (actionObject) {
-    //   const token = localStorage.getItem('token')
-    //   fetch(url, {
-    //     headers: {
-    //       Authorization: 'Bearer ' + token
-    //     }
-    //   })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       actionObject.commit('setUser', data.user)
-    //     })
-    // },
+    checkToken (actionObject) {
+      const token = localStorage.getItem('token')
+      fetch(url, {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          actionObject.commit('setUser', data.user)
+        })
+    },
     logout (actionObject) {
       actionObject.commit('resetUser')
       localStorage.removeItem('token')
