@@ -17,7 +17,7 @@ WORKDIR /app
 
 COPY --from=build /app/dist ./static
 COPY server/src src
-COPY server/package-lock.json api/package.json ./
+COPY server/package-lock.json server/package.json ./
 
 RUN npm ci --production
 
