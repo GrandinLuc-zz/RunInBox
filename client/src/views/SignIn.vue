@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <form @submit.prevent="sendCredentials()" class="box">
+        <form @submit.prevent="signIn()" class="box">
             <h1>Connection</h1>
             <div>
                 <input type="text" id="username" v-model="username" required placeholder="Username">
@@ -26,7 +26,7 @@ export default {
     sendCredentials () {
       const login = this.username
       const password = this.password
-      fetch('http://localhost:4000/api/v1/auth/token', {
+      fetch('/api/v1/auth/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -38,11 +38,32 @@ export default {
       })
         .then(res => res.json())
         .then(({ success, token }) => {
-          localStorage.setItem('token', token)
-          localStorage.setItem('username', this.username)
           if (success === true) {
+            localStorage.setItem('token', token)
+            localStorage.setItem('username', this.username)
             console.log('success')
             window.location.replace('/')
+          }
+        })
+        .catch(error => { this.error = error })
+    },
+    signIn () {
+      const login = this.username
+      const password = this.password
+      fetch('/api/v1/read', { // trouver une autre url que read -> pas de verbe dans les url
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          login,
+          password
+        })
+      })
+        .then(res => res.json())
+        .then(({ success, usernameCorrect }) => {
+          if (success && usernameCorrect /* && tokenCorrect */) {
+            this.sendCredentials()
           }
         })
         .catch(error => { this.error = error })

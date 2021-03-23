@@ -4,12 +4,9 @@ const tokenUtils = require('../utils/token-utils.js')
 
 const router = new express.Router()
 
-const login = 'joe'
-const password = 'smith'
+const users = require('../users.json')
 
 router.post('/token', (req, res) => {
-    const authorizedLogin = login
-    const authorizedPasswd = password
 
     const body = req.body
 
@@ -21,20 +18,12 @@ router.post('/token', (req, res) => {
         return
     }
 
-    if (body.password !== authorizedPasswd || body.login !== authorizedLogin) {
-        res.json({
-            success: false,
-            message: 'Invalid credentials'
-        })
-        return
-    }
-
     const payload = {
         login: body.login,
     }
 
     const token = tokenUtils.createToken(payload)
-
+    console.log('token')
     res.status(201).json({
         success: true,
         token

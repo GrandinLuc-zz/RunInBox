@@ -19,12 +19,18 @@ router.post('/token', (req, res) => {
     const token = {
         token: body.token,
     }
-
-    const tokenWorking = tokenUtils.checkToken(body.token)
-    res.status(202).json({
-        success: true,
-        toCheck: tokenWorking
-    })
+    try{const tokenWorking = tokenUtils.checkToken(body.token)
+        res.status(202).json({
+            success: true,
+            toCheck: tokenWorking
+        })}
+    
+    catch(error){
+        res.status(401).json({
+            success: false,
+            message: 'Token not valid'
+        })
+    }
 })
 
 module.exports = router

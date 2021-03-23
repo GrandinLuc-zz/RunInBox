@@ -26,14 +26,14 @@
           <button
           id='sign_up'
           class='btn btn-color'
-          @click='$router.push("sign_up")'
+          @click='$router.push("sign-up")'
         >
           <a>Sign up</a>
         </button>
         <button
           id='sign_in'
           class='btn btn-transparent'
-          @click='$router.push("sign_in")'
+          @click='$router.push("sign-in")'
         >
           Log in
           </button>
@@ -72,7 +72,7 @@ export default {
     },
     isLoggedIn () {
       const token = localStorage.getItem('token')
-      fetch('http://localhost:4000/api/v1/verify/token', {
+      fetch('/api/v1/verify/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -82,12 +82,13 @@ export default {
         })
       })
         .then(res => res.json())
+        .catch(error => console.warn(error))
         .then(
           (toCheck) => {
             const username = localStorage.getItem('username')
-            if (toCheck.toCheck.login === username) {
+            if (toCheck?.toCheck?.login === username) {
               this.loggedInInterface()
-            }
+            } // supprimer jwb du local storage et rediriger vers page login
           }
         )
     },

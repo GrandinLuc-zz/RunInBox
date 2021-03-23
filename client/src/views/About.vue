@@ -8,12 +8,12 @@
     <div class="boxContainer">
       <div class="halfBox" id="leftBox">
         <p class="textHalfBox" id="rightBox">
-          Profitez d'une mystery box tout les mois dans votre boîte aux lettres !
+            Parfaite pour offrir à Noël ou aux anniverssaires.
         </p>
       </div>
       <div class="halfBox">
          <p class="textHalfBox" id="rightBox">
-            Profitez d'une mystery box tout les mois dans votre boîte aux lettres !
+            Souscrivez pour seulent $49.99 par mois et découvrez les surprises que vous réserve votre box.
         </p>
       </div>
     </div>
