@@ -13,7 +13,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      MONGO_URL: mongodb://JoeRino:password@mongo:27017/myFirstDatabase
+      MONGO_URL: mongodb://JoeRino:azqswxccc@mongo:27017/myFirstDatabase
 
   mongo:
     image: mongo
