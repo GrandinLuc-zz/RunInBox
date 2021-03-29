@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd client && npm run build",
-    "start": "concurrently \"node server/src/index.js\" \"npm run client\" "
+    "client": "cd client && npm ci && npm run build",
+    "server": "cd server && npm ci && node src/index.js",
+    "start": "concurrently \"npm run server\" \"npm run client\" "
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/GrandinLuc/RunInBox/tree/master"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.0.0"
+  }
 }
