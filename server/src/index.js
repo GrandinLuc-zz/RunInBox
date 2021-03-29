@@ -8,7 +8,11 @@ const app = express()
 
 dotenv.config()
 
-const port = 4000
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('../../client/build'))
+}
+
+const port = process.env.PORT || 4000
 
 app.use(bodyParser.json()) // Permet de lire le corps des requêtes, notamment POST, PUT et PATCH
 
