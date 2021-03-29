@@ -4,7 +4,7 @@
   "description": "Ce projet est un site web de e-commerce.",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "npm install -g @vue/cli-service @vue/cli-plugin-babel @vue/cli-plugin-eslint",
+    "heroku-prebuild": "npm install -g @vue/cli-service @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-plugin-pwa @vue/cli-plugin-router @vue/cli-plugin-vuex @vue/cli-service @vue/compiler-sfc @vue/eslint-config-standard",
     "client-install": "npm install --prefix client",
     "start": "node ./server/src/index.js",
     "server": "nodemon ./server/src/index.js --exec babel-node --presets babel-preset-env",
