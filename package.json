@@ -1,0 +1,15 @@
+{
+  "name": "runinbox",
+  "version": "1.0.0",
+  "description": "Le site que nous avons souhaité faire est un site du style e-commerce. L’idée première de ce site internet était de créer un site ou il est possible de commander des boxs de produits qui arriveraient tous les mois. Néanmoins, afin de pouvoir intégrer l’utilisation d’une API a notre projet, nous avons choisi de créer un site qui constitue des paniers de produits aléatoirement parmi une liste de produits couramment consommé. Pour chaque produit affiché aléatoirement sur le site, un script javascript va scrapper depuis le site de photos libre de droits Unplash des images correspondantes aux items de la liste aléatoire crée.\r Nous avons également une page About et deux pages : Sign in et Sign up, respectivement pour se connecter à son profil et pour se créer un compte client. Pour créer les pages d’inscription et de connexion, nous avons ajouté de légères animations, ainsi que dans le burger menu qui s’affiche en format téléphone.\r Lorsqu’un utilisateur se connecte avec son identifiant et son mot de passe, un token lui est attribué avec et les boutons Sign in et Sign up disparaissent pour laisser place à un bouton de déconnexion.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrandinLuc/RunInBox/tree/master"
+  },
+  "author": "",
+  "license": "ISC"
+}
