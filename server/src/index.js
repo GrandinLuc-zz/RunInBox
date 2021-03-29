@@ -8,15 +8,20 @@ const app = express()
 
 dotenv.config()
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('../../client/build'))
-}
 
 const port = process.env.PORT || 4000
 
 app.use(bodyParser.json()) // Permet de lire le corps des requêtes, notamment POST, PUT et PATCH
 
 app.use('/api/v1', router)
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(__dirname+'/public/'))
+
+  app.get(/.*/, (req, res) => {
+    res.sendFile(__dirname + '/public/index.html')
+  })
+}
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

@@ -4,6 +4,7 @@
   "description": "Ce projet est un site web de e-commerce.",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "npm install -g @vue/cli-service",
     "client-install": "npm install --prefix client",
     "start": "node ./server/src/index.js",
     "server": "nodemon ./server/src/index.js --exec babel-node --presets babel-preset-env",
