@@ -1,6 +1,7 @@
 const dotenv = require('dotenv')
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 const router = require('./routes/index.js')
 
@@ -15,11 +16,11 @@ app.use(bodyParser.json()) // Permet de lire le corps des requêtes, notamment P
 
 app.use('/api/v1', router)
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(__dirname+'/public/'))
+if (true) {
+  app.use(express.static(__dirname+'/../static/'))
 
-  app.get(/.*/, (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
+  app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/../static/index.html')
   })
 }
 

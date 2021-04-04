@@ -68,3 +68,20 @@ Pour lancer, utiliser la commande : npm run dev
 * Bcrytp : https://www.npmjs.com/package/bcrypt
 * Extension chrome ( qui permet aux images de s'afficher ) Moesif Origin & CORS Changer : https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related
 
+
+## Deploy to Heroku
+
+heroku container:login
+
+git clone https:// ...
+
+heroku create
+
+heroku container:push web
+
+heroku container:release web
+
+heroku open
+
+
+
